@@ -2,6 +2,7 @@ package ship1;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.Random;
 
 public class Ship extends Vehicle{
 	
@@ -10,6 +11,7 @@ public class Ship extends Vehicle{
     public Color FirstColor; 
     public Color SecondColor; 
     public int Weight;  
+    IDeck deck;
     
     public Ship(int maxSpeed, int weight, Color firstColor, Color secondColor)
     {
@@ -50,15 +52,34 @@ public class Ship extends Vehicle{
                 break;
         }
     }
+    protected void GetRandom()
+    {
+        Random rnd = new Random();           
+        switch(rnd.nextInt(3)+1) {
+			case 3:
+				deck= new BasicDeck(startPosX, startPosY);
+				break;
+			case 2:
+				deck= new StrippedDeck(startPosX, startPosY);
+				break;
+			case 1:
+				deck= new CrossedDeck(startPosX, startPosY);
+				break;		
+		}    	   
+     }
+    
     @Override
     public void DrawTransport(Graphics g)
-	{	
+	{	    	
 		g.setColor(FirstColor);
 		g.fillRect(startPosX, startPosY + 35, 90, 15); 
 		g.setColor(SecondColor);
 		g.fillRect(startPosX +20, startPosY + 25, 50, 10);
+		GetRandom();
+   		deck.DrawDesign(Decks.two, g,  Color.black);
 		
 	}
+    
     
 
 }

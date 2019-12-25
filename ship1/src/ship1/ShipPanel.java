@@ -30,7 +30,7 @@ public class ShipPanel extends JPanel {
 		buttonCreateShip.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {	  
                 Random rnd = new Random();
-                ship = new Ship(100, 1000, Color.WHITE, Color.BLUE);
+                ship = new Ship(100, 1000, Color.ORANGE , Color.BLUE);
                 ship.SetPosition(rnd.nextInt(90)+10, rnd.nextInt(90)+10, Width, Height);                
 				repaint();
 			}
@@ -41,7 +41,7 @@ public class ShipPanel extends JPanel {
 		buttonCreateMotorShip.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {	  
                 Random rnd = new Random();
-                ship = new MotorShip(100, 1000, Color.WHITE, Color.BLUE, Color.yellow, true);
+                ship = new MotorShip(100, 1000, Color.ORANGE, Color.BLUE, Color.yellow, true);
                 ship.SetPosition(rnd.nextInt(90)+10, rnd.nextInt(90)+10, Width, Height);                
 				repaint();
 			}
@@ -84,9 +84,7 @@ public class ShipPanel extends JPanel {
 		super.paint(g);	
 		if(ship!=null)    
 		{
-			ship.DrawTransport(g);
-			deck = new CrossedDeck();
-			deck.DrawDesign(Decks.one, g,  Color.black);
+			ship.DrawTransport(g);			
 		}
                                        
 			

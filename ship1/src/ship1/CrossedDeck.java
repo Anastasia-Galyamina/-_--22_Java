@@ -4,28 +4,40 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class CrossedDeck implements IDeck{	
+	int startPosX;
+	int startPosY;
 	
-	public CrossedDeck (){};
+	public CrossedDeck (int X, int Y)
+	{
+		startPosX = X;
+		startPosY = Y;
+	};
 		
 	public void DrawDesign(Decks decks, Graphics g, Color color)
 	{
-		g.setColor(color);
-		for(int i = 0; i < 90; i += 10)
-			g.drawLine(i, 35, i, 50);
-		for(int j = 35; j < 50; j += 10)
-			g.drawLine(0, j, 90, j);
+		g.setColor(color);		
 		switch (decks)
 		{			
 		case two:
-			for(int i = 20; i < 70; i += 10)
-				g.drawLine(i, 25, i, 35);	
-			for(int j = 25; j < 35; j += 10)
-				g.drawLine(20, j, 70, j);
+			for(int i = 0; i < 90; i += 5)
+			g.drawLine(startPosX + i, startPosY + 35, startPosX + i, startPosY + 50);
+		for(int j = 35; j < 55; j += 5)
+			g.drawLine(startPosX ,startPosY +  j, startPosX + 90, startPosY + j);
+			for(int i = 20; i <  70; i += 5)
+				g.drawLine(startPosX + i,startPosY +  25,startPosX +  i, startPosY + 35);	
+			for(int j = 25; j < 35; j += 5)
+				g.drawLine(startPosX + 20, startPosY + j, startPosX + 70, startPosY + j);
+			break;
 		case three:		
-			for(int i = 35; i < 55; i += 10)
-				g.drawLine(i, 15, i, 25);	
-			for(int j = 15; j < 25; j += 10)
-				g.drawLine(35, j, 55, j);
+			/*for(int i = 20; i <  70; i += 5)
+				g.drawLine(startPosX + i,startPosY +  25,startPosX +  i, startPosY + 35);	
+			for(int j = 25; j < 35; j += 5)
+				g.drawLine(startPosX + 20, startPosY + j, startPosX + 70, startPosY + j);*/
+			for(int i =  30; i <  60; i += 5)
+				g.drawLine(startPosX + i, startPosY + 15, startPosX + i, startPosY + 25);	
+			for(int j = 15; j < 25; j += 5)
+				g.drawLine(startPosX + 35,startPosY +  j, startPosX + 55, startPosY + j);
+			break;
 					
 		}
 	}
