@@ -28,11 +28,7 @@ public class CrossedDeck implements IDeck{
 			for(int j = 25; j < 35; j += 5)
 				g.drawLine(startPosX + 20, startPosY + j, startPosX + 70, startPosY + j);
 			break;
-		case three:		
-			/*for(int i = 20; i <  70; i += 5)
-				g.drawLine(startPosX + i,startPosY +  25,startPosX +  i, startPosY + 35);	
-			for(int j = 25; j < 35; j += 5)
-				g.drawLine(startPosX + 20, startPosY + j, startPosX + 70, startPosY + j);*/
+		case three:					
 			for(int i =  30; i <  60; i += 5)
 				g.drawLine(startPosX + i, startPosY + 15, startPosX + i, startPosY + 25);	
 			for(int j = 15; j < 25; j += 5)
