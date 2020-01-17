@@ -18,19 +18,15 @@ public class MotorShip extends Ship {
    public void DrawTube(Graphics g)
    {
        g.setColor(Color.RED);
-       g.fillRect(startPosX + 40, startPosY, 10, 15);
+       g.fillRect(startPosX + 100, startPosY + 10, 10, 10);
    }          
    @Override
    public void DrawTransport(Graphics g)
    {
 	   super.DrawTransport(g); 
 	   g.setColor(ThirdColor);
-	   g.fillRect(startPosX + 30, startPosY + 15, 30, 10);
+	   g.fillRect(startPosX + 75, startPosY + 20, 50, 10);
 	   if(Tube == true)
-		   DrawTube(g);
-	   GetRandom();
-   		deck.DrawDesign(Decks.three, g,  Color.black);
+		   DrawTube(g);	   
     }
 }
-
-
