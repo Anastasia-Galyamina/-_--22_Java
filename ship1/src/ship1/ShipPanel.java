@@ -10,7 +10,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class ShipPanel extends JPanel {
-	MotorShip ship;
+	ITransport ship;
+	IDeck deck;
 	public int Height;
 	public int Width;
 	public ShipPanel() {
@@ -25,17 +26,27 @@ public class ShipPanel extends JPanel {
 		});
 		add(buttonRight);
 		
-		JButton buttonCreate = new JButton("\u0421\u043E\u0437\u0434\u0430\u0442\u044C");
-		buttonCreate.addActionListener(new ActionListener() {
+		JButton buttonCreateShip = new JButton("\u0421\u043E\u0437\u0434\u0430\u0442\u044C");
+		buttonCreateShip.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {	  
-                                Random rnd = new Random();
-				ship = new MotorShip(100, 1000, Color.WHITE, Color.BLUE, Color.RED,true);
-                                ship.SetPosition(rnd.nextInt(90)+10, rnd.nextInt(90)+10, Width, Height);
-                                ship.GetRandom();
+                Random rnd = new Random();
+                ship = new Ship(100, 1000, Color.ORANGE , Color.BLUE);
+                ship.SetPosition(rnd.nextInt(90)+10, rnd.nextInt(90)+10, Width, Height);                
 				repaint();
 			}
 		});
-		add(buttonCreate);
+		add(buttonCreateShip);
+		
+		JButton buttonCreateMotorShip = new JButton("\u0421\u043E\u0437\u0434\u0430\u0442\u044C");
+		buttonCreateMotorShip.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {	  
+                Random rnd = new Random();
+                ship = new MotorShip(100, 1000, Color.ORANGE, Color.BLUE, Color.yellow, true);
+                ship.SetPosition(rnd.nextInt(90)+10, rnd.nextInt(90)+10, Width, Height);                
+				repaint();
+			}
+		});
+		add(buttonCreateMotorShip);
 		
 		JButton buttonDown = new JButton("\u0412\u043D\u0438\u0437");
 		buttonDown.addActionListener(new ActionListener() {
@@ -71,8 +82,11 @@ public class ShipPanel extends JPanel {
 	
 	public void paint(Graphics g) {
 		super.paint(g);	
-		if(ship!=null)                                  
-                    ship.DrawShip(g);                           
+		if(ship!=null)    
+		{
+			ship.DrawTransport(g);			
+		}
+                                       
 			
 	}
 }
