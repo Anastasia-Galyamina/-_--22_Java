@@ -10,7 +10,7 @@ public abstract class Vehicle implements ITransport {
 	protected int pictureWidth;    
 	protected int pictureHeight; 
 	Decks enumDeck = null;
-    public int MaxSpeed;   
+    protected int MaxSpeed;   
 	@Override
 	public void SetPosition(int x, int y, int width, int height)
     {

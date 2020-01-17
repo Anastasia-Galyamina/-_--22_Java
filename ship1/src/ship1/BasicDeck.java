@@ -5,9 +5,9 @@ import java.awt.Graphics;
 
 public class BasicDeck implements IDeck{
 	int startPosX;
-	int startPosY;
+	int startPosY;	
 	
-	public BasicDeck (int X, int Y)
+	public void SetPosition(int X, int Y)
 	{
 		startPosX = X;
 		startPosY = Y;
