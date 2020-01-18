@@ -6,8 +6,8 @@ import java.util.Random;
 
 public class Ship extends Vehicle{
 	
-	private int shipWidth  = 110;    
-    private int shipHeight = 100; 
+	private int shipWidth  = 220;    
+    private int shipHeight = 200; 
     public Color FirstColor; 
     public Color SecondColor; 
     public int Weight;  
@@ -52,18 +52,18 @@ public class Ship extends Vehicle{
                 break;
         }
     }
-    protected void GetRandom()
+    public void GetRandom()
     {
         Random rnd = new Random();           
         switch(rnd.nextInt(3)+1) {
 			case 3:
-				deck= new BasicDeck(startPosX, startPosY);
+				deck= new BasicDeck();
 				break;
 			case 2:
-				deck= new StrippedDeck(startPosX, startPosY);
+				deck= new StrippedDeck();
 				break;
 			case 1:
-				deck= new CrossedDeck(startPosX, startPosY);
+				deck= new CrossedDeck();
 				break;		
 		}    	   
      }
@@ -72,14 +72,9 @@ public class Ship extends Vehicle{
     public void DrawTransport(Graphics g)
 	{	    	
 		g.setColor(FirstColor);
-		g.fillRect(startPosX, startPosY + 35, 90, 15); 
+		g.fillRect(startPosX, startPosY + 50, 200, 30); 
 		g.setColor(SecondColor);
-		g.fillRect(startPosX +20, startPosY + 25, 50, 10);
-		GetRandom();
-   		deck.DrawDesign(Decks.two, g,  Color.black);
+		g.fillRect(startPosX +50, startPosY + 30, 100, 20);		
 		
-	}
-    
-    
-
+	}    
 }

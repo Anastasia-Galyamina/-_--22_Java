@@ -6,5 +6,5 @@ import java.awt.Graphics;
 public interface IDeck {
 	
 	public void DrawDesign(Decks decks, Graphics g, Color color);
-
+	public void SetPosition(int X, int Y);
 }
