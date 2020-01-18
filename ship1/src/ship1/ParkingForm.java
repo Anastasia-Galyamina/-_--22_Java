@@ -55,9 +55,11 @@ public class ParkingForm {
  		JButton btnShip = new JButton("Ship");
 		btnShip.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {	
-					ship = new Ship(100, 1000, Color.gray, Color.pink);					
+					Color mainColor = JColorChooser.showDialog(null, "Цвет", null);
+				    	Color dopColor = JColorChooser.showDialog(null, "Цвет", null);
+					ship = new Ship(100, 1000, mainColor, dopColor);					
 					ship.GetRandom();					
-					parking.addShip(ship, ship.deck);									
+					parking.addShip(ship, ship.deck);										
 			}
 		});
 		btnShip.setBounds(900, 11, 97, 25);
@@ -66,9 +68,12 @@ public class ParkingForm {
  		JButton btnMotorShip = new JButton("MotorShip");
  		btnMotorShip.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {				
-							ship = new MotorShip(100, 1000, Color.gray, Color.pink, Color.orange,  true);
-							ship.GetRandom();
-							parking.addShip(ship, ship.deck);
+					Color mainColor = JColorChooser.showDialog(null, "Цвет", null);
+				    	Color dopColor = JColorChooser.showDialog(null, "Цвет", null);
+				    	Color SecondDopColor = JColorChooser.showDialog(null, "Цвет", null);
+					ship = new MotorShip(100, 1000, mainColor, dopColor, SecondDopColor,  true);
+					ship.GetRandom();
+					parking.addShip(ship, ship.deck);
 			}		
 			
 		});	
